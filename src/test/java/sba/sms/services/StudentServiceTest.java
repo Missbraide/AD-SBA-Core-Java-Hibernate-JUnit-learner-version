@@ -3,8 +3,10 @@ package sba.sms.services;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import sba.sms.models.Student;
+import sba.sms.models.Course;
 import sba.sms.utils.CommandLine;
 
 import java.util.ArrayList;
@@ -25,6 +27,7 @@ class StudentServiceTest {
     }
 
     @Test
+    @Order(1)
     void getAllStudents() {
 
         List<Student> expected = new ArrayList<>(Arrays.asList(
@@ -38,4 +41,16 @@ class StudentServiceTest {
         assertThat(studentService.getAllStudents()).hasSameElementsAs(expected);
 
     }
+
+    @Test
+    @Order(2)
+    void registerStudentToCourse() {
+        Course course = new Course(2,"Frontend", "Kasper Kain");
+        Student student = studentService.getStudentByEmail("anthony@gmail.com");
+        studentService.registerStudentToCourse(student.getEmail(), 2);
+        assertThat(studentService.getStudentCourses(student.getEmail())).contains(course);
+    }
+
 }
+
+

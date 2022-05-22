@@ -13,12 +13,12 @@
         <property name="dialect">org.hibernate.dialect.H2Dialect</property>
 
 
-        <!--        MariaDB Database-->
-        <!--        <property name="connection.url">jdbc:mariadb://localhost:3306/sbajpa?createDatabaseIfNotExist=true</property>-->
-        <!--        <property name="connection.username">root</property>-->
-        <!--        <property name="connection.password">root</property>-->
-        <!--        <property name="connection.driver_class">org.mariadb.jdbc.Driver</property>-->
-        <!--        <property name="dialect">org.hibernate.dialect.MariaDB106Dialect</property>-->
+               <!-- MariaDB Database -->
+                <property name="connection.url">jdbc:mariadb://localhost:3306/sbajpa?createDatabaseIfNotExist=true</property>
+                <property name="connection.username">root</property>
+                <property name="connection.password">23091964</property>
+                <property name="connection.driver_class">org.mariadb.jdbc.Driver</property>
+                <property name="dialect">org.hibernate.dialect.MariaDB106Dialect</property>
 
 
 
@@ -41,3 +41,4 @@
 
     </session-factory>
 </hibernate-configuration>
+
