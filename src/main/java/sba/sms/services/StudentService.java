@@ -55,7 +55,7 @@ public class StudentService implements StudentI {
                 s.persist(student);
                 tx.commit();
             } else{
-                System.out.printf("Student with %s already exists in system%n", student.getEmail());
+                System.out.printf("Student Exist!");
             }
         } catch (HibernateException exception) {
             if (tx!=null) tx.rollback();
@@ -133,7 +133,7 @@ public class StudentService implements StudentI {
     public List<Course> getStudentCourses(String email) {
         List<Course> coursesList = null;
         try (Session s = HibernateUtil.getSessionFactory().openSession()){
-            NativeQuery q = s.createNativeQuery("SELECT c.id, c.name, c.instructor FROM Course as c JOIN student_courses as sc ON sc.course_id = c.id JOIN Student as s ON s.email = sc.student_email WHERE s.email = :email",Course.class);
+            NativeQuery q = s.createNativeQuery("SELECT c.id, c.name, c.instructor FROM Course as c JOIN student_courses as sc ON sc.courses_id = c.id JOIN Student as s ON s.email = sc.student_email WHERE s.email = :email",Course.class);
             q.setParameter("email",email);
             coursesList = q.getResultList();
         } catch (HibernateException exception) {
