@@ -92,22 +92,6 @@ public class StudentService implements StudentI {
         }
         return false;
     }
-//    public boolean validateStudent(String email, String password) {
-//        Session s = HibernateUtil.getSessionFactory().openSession();
-//        Transaction tx = null;
-//        try{
-//            Student student = s.get(Student.class,email);
-//            if(student.getPassword() == password) {
-//                System.out.println("Your password is correct");
-//                return true;
-//            }
-//        } catch (HibernateException exception) {
-//            exception.printStackTrace();
-//        } finally {
-//            s.close();
-//        }
-//        return false;
-//    }
 
     @Override
     public void registerStudentToCourse(String email, int courseId) {
