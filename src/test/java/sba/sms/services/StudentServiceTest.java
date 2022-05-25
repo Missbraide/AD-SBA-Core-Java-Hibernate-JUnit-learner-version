@@ -45,9 +45,9 @@ class StudentServiceTest {
     @Test
     @Order(2)
     void registerStudentToCourse() {
-        Course course = new Course(2,"Frontend", "Kasper Kain");
+        Course course = new Course(1,"Frontend", "Kasper Kain");
         Student student = studentService.getStudentByEmail("anthony@gmail.com");
-        studentService.registerStudentToCourse(student.getEmail(), 2);
+        studentService.registerStudentToCourse(student.getEmail(), 1);
         assertThat(studentService.getStudentCourses(student.getEmail())).contains(course);
     }
 
